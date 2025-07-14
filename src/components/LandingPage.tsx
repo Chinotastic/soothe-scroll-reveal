@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import FoamRoller3D from './FoamRoller3D'
 import ScrollSection from './ScrollSection'
 import { Button } from '@/components/ui/button'
@@ -144,9 +144,20 @@ export default function LandingPage() {
       </ScrollSection>
 
       {/* Real Usage Photos Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <ScrollSection className="text-center mb-16">
+      <section className="py-20 px-6 bg-muted/30 relative overflow-hidden">
+        {/* Parallax Background Elements */}
+        <motion.div 
+          className="absolute inset-0 opacity-5"
+          style={{ 
+            y: useTransform(useScroll().scrollYProgress, [0, 1], [-100, 100])
+          }}
+        >
+          <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <ScrollSection direction="scale" className="text-center mb-16">
             <h2 className="font-title text-4xl md:text-5xl font-bold text-foreground mb-4">
               See It In Action
             </h2>
@@ -156,52 +167,106 @@ export default function LandingPage() {
           </ScrollSection>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Image 1 */}
-            <ScrollSection direction="left" delay={0.2}>
-              <div className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500">
-                <img 
+            {/* Image 1 - Enhanced with scale animation */}
+            <ScrollSection direction="scale" delay={0.2} parallax={true}>
+              <motion.div 
+                className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500"
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+                }}
+              >
+                <motion.img 
                   src="/lovable-uploads/0c4fdea4-d69a-42e4-b84f-746639fdb42b.png"
                   alt="Athlete using foam roller for leg recovery"
-                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-[400px] object-cover transition-transform duration-700"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 text-white">
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div 
+                  className="absolute bottom-6 left-6 text-white"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   <p className="font-title text-lg font-semibold">Professional Recovery</p>
                   <p className="font-body text-sm opacity-90">Target specific muscle groups</p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </ScrollSection>
 
-            {/* Image 2 */}
-            <ScrollSection direction="up" delay={0.4}>
-              <div className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500">
-                <img 
+            {/* Image 2 - Enhanced with left slide and parallax */}
+            <ScrollSection direction="left" delay={0.4} parallax={true}>
+              <motion.div 
+                className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500"
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+                }}
+              >
+                <motion.img 
                   src="/lovable-uploads/44b2e2d2-304e-42d7-9c54-e19c0635844a.png"
                   alt="Athlete performing foam rolling exercise"
-                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-[400px] object-cover transition-transform duration-700"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 text-white">
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div 
+                  className="absolute bottom-6 left-6 text-white"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   <p className="font-title text-lg font-semibold">Enhanced Flexibility</p>
                   <p className="font-body text-sm opacity-90">Improve range of motion</p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </ScrollSection>
 
-            {/* Image 3 */}
-            <ScrollSection direction="right" delay={0.6}>
-              <div className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500">
-                <img 
+            {/* Image 3 - Enhanced with right slide and parallax */}
+            <ScrollSection direction="right" delay={0.6} parallax={true}>
+              <motion.div 
+                className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500"
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+                }}
+              >
+                <motion.img 
                   src="/lovable-uploads/a1da0c35-5850-40bb-8f81-033a990c7f7f.png"
                   alt="Athlete using foam roller in gym setting"
-                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-[400px] object-cover transition-transform duration-700"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 text-white">
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div 
+                  className="absolute bottom-6 left-6 text-white"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   <p className="font-title text-lg font-semibold">Daily Training</p>
                   <p className="font-body text-sm opacity-90">Built for intensive use</p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </ScrollSection>
           </div>
         </div>

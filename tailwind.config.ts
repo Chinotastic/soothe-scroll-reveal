@@ -71,7 +71,9 @@ export default {
 			fontFamily: {
 				'title': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
 				'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+				'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				'bohme': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				'clash': ['Inter', 'system-ui', '-apple-system', 'sans-serif']
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)'

@@ -17,7 +17,7 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
             className="font-title text-2xl font-bold"
           >
-            FlexRoll
+            Moahu
           </motion.div>
           
           <motion.div
@@ -50,7 +50,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-title text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
+              className="font-bohme text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
             >
               Unlock Your
               <span className="block text-primary">Recovery</span>
@@ -60,7 +60,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-body text-xl md:text-2xl text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0"
+              className="font-clash text-xl md:text-2xl text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0"
             >
               Professional-grade foam roller designed for athletes and fitness enthusiasts who demand the best.
             </motion.p>
@@ -105,43 +105,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <ScrollSection className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-title text-4xl md:text-5xl font-bold text-foreground mb-12">
-            Why Athletes Choose FlexRoll
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Deep Tissue Relief",
-                description: "Advanced texture design penetrates deep into muscle tissue for maximum recovery."
-              },
-              {
-                title: "Professional Grade", 
-                description: "Built to withstand intensive daily use in professional training facilities."
-              },
-              {
-                title: "Ergonomic Design",
-                description: "Perfectly balanced weight and grip for comfortable, controlled movements."
-              }
-            ].map((benefit, index) => (
-              <ScrollSection key={index} delay={index * 0.2} className="text-center">
-                <div className="bg-card p-8 rounded-xl shadow-soft hover:shadow-lg transition-shadow">
-                  <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="font-title text-xl font-bold text-foreground mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="font-body text-muted-foreground">
-                    {benefit.description}
-                  </p>
-                </div>
-              </ScrollSection>
-            ))}
-          </div>
-        </div>
-      </ScrollSection>
 
       {/* Real Usage Photos Section */}
       <section className="py-20 px-6 bg-muted/30 relative overflow-hidden">
@@ -158,11 +121,11 @@ export default function LandingPage() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <ScrollSection direction="scale" className="text-center mb-16">
-            <h2 className="font-title text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-bohme text-4xl md:text-5xl font-bold text-foreground mb-4">
               See It In Action
             </h2>
-            <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of athletes who trust FlexRoll for their recovery routine.
+            <p className="font-clash text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join thousands of athletes who trust Moahu for their recovery routine.
             </p>
           </ScrollSection>
 
@@ -195,8 +158,8 @@ export default function LandingPage() {
                   whileHover={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                  <p className="font-title text-lg font-semibold">Professional Recovery</p>
-                  <p className="font-body text-sm opacity-90">Target specific muscle groups</p>
+                  <p className="font-bohme text-lg font-semibold">Professional Recovery</p>
+                  <p className="font-clash text-sm opacity-90">Target specific muscle groups</p>
                 </motion.div>
               </motion.div>
             </ScrollSection>
@@ -229,8 +192,8 @@ export default function LandingPage() {
                   whileHover={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                  <p className="font-title text-lg font-semibold">Enhanced Flexibility</p>
-                  <p className="font-body text-sm opacity-90">Improve range of motion</p>
+                  <p className="font-bohme text-lg font-semibold">Enhanced Flexibility</p>
+                  <p className="font-clash text-sm opacity-90">Improve range of motion</p>
                 </motion.div>
               </motion.div>
             </ScrollSection>
@@ -263,8 +226,8 @@ export default function LandingPage() {
                   whileHover={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                  <p className="font-title text-lg font-semibold">Daily Training</p>
-                  <p className="font-body text-sm opacity-90">Built for intensive use</p>
+                  <p className="font-bohme text-lg font-semibold">Daily Training</p>
+                  <p className="font-clash text-sm opacity-90">Built for intensive use</p>
                 </motion.div>
               </motion.div>
             </ScrollSection>
@@ -275,11 +238,11 @@ export default function LandingPage() {
       {/* CTA Section */}
       <ScrollSection className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-title text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-bohme text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to Elevate Your Recovery?
           </h2>
-          <p className="font-body text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Join the thousands of athletes who've made FlexRoll their go-to recovery tool.
+          <p className="font-clash text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Join the thousands of athletes who've made Moahu their go-to recovery tool.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -297,8 +260,8 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="bg-header text-header-foreground py-8 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="font-title text-2xl font-bold mb-4">FlexRoll</div>
-          <p className="font-body text-sm opacity-80">
+          <div className="font-bohme text-2xl font-bold mb-4">Moahu</div>
+          <p className="font-clash text-sm opacity-80">
             Professional recovery tools for serious athletes
           </p>
         </div>

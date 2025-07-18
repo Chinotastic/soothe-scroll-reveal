@@ -85,7 +85,7 @@ useEffect(() => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="font-clash text-xl md:text-4xl text-gray-700 mb-8 lg:mx-0 text-center "
             >
-              Recupera tu cuerpo. Cuidá el planeta.
+              Recuperá tu cuerpo. Cuidá el planeta.
             </motion.p>
             <div className=" flex justify-center w-full">
               <a
@@ -224,8 +224,8 @@ useEffect(() => {
 
                 {/* Texto visible al hacer hover */}
                 <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition duration-300">
-                  <p className="font-bohme text-lg font-semibold">Recuperación profesional</p>
-                  <p className="font-clash text-sm opacity-90">Activa zonas musculares clave</p>
+                  <p className="font-bohme text-lg font-semibold">Entrená mas fuerte</p>
+                  <p className="font-clash text-sm opacity-90">Recuperá mas rapido</p>
                 </div>
               </motion.div>
             </ScrollSection>
@@ -251,8 +251,8 @@ useEffect(() => {
 
                 {/* Texto visible al hacer hover */}
                 <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition duration-300">
-                  <p className="font-bohme text-lg font-semibold">Recuperación profesional</p>
-                  <p className="font-clash text-sm opacity-90">Activa zonas musculares clave</p>
+                  <p className="font-bohme text-lg font-semibold">Hecho para durar</p>
+                  <p className="font-clash text-sm opacity-90">Diseñado para resultados</p>
                 </div>
               </motion.div>
             </ScrollSection>
@@ -277,7 +277,7 @@ useEffect(() => {
           </div>
 
           {/* Eslogan */}
-          <p className="text-sm sm:text-base font-clash sm:text-3xl">Recupera tu cuerpo. Cuidá el planeta.</p>
+          <p className="text-sm sm:text-base font-clash sm:text-3xl">Recuperá tu cuerpo. Cuidá el planeta.</p>
 
           {/* Logo */}
           <img src="/lovable-uploads/Logo.png" alt="Moahu Logo" className="w-30 h-16" />

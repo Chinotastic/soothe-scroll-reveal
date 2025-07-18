@@ -4,20 +4,45 @@ import FoamRoller3D from './FoamRoller3D'
 import ScrollSection from './ScrollSection'
 import { Button } from '@/components/ui/button'
 import { Star, ArrowRight, CheckCircle } from 'lucide-react'
+import { useEffect, useState } from "react";
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Environment, useGLTF } from '@react-three/drei'
+import { GLTF } from 'three-stdlib'
+import { ThreeDViewer } from "@/components/ThreeDViewer";
+
+
+
 
 export default function LandingPage() {
+  const [showHeader, setShowHeader] = useState(true);
+let lastScrollY = 0;
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      setShowHeader(false); // Scrolling down
+    } else {
+      setShowHeader(true); // Scrolling up
+    }
+    lastScrollY = window.scrollY;
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-celeste">
       {/* Header */}
-      <header className="bg-header text-header-foreground py-4 px-6 sticky top-0 z-50 shadow-soft">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+      <header className={`bg-header text-header-foreground py-4 px-6 shadow-soft transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="max-w-6xl mx-auto flex justify-center items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-title text-2xl font-bold"
+            className="font-bohme text-2xl text-celeste"
           >
-            Moahu
+            <img src="/lovable-uploads/Logo.png" alt="Moahu logo" className="w-24 h-auto object-contain" />
           </motion.div>
           
           <motion.div
@@ -25,9 +50,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Button variant="secondary" size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30">
-              Shop Now
-            </Button>
+           
           </motion.div>
         </div>
       </header>
@@ -35,75 +58,102 @@ export default function LandingPage() {
       {/* Hero Section with 3D Model */}
       <section className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted -z-10" />
+        <div className="absolute inset-0 bg-[#58c9e7] -z-10" />
         
         {/* Hero Content */}
-        <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-zxl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left z-10"
+            className="flex flex-col justify-center items-start text-left px-4 lg:px-8 space-y-5 z-10"
           >
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-bohme text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
+              className="text-6xl font-bohme text-azul text-center mt-12 sm:mt-20"
             >
-              Unlock Your
-              <span className="block text-primary">Recovery</span>
+              Rodillos 100% de caucho reciclado.
+              
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-clash text-xl md:text-2xl text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0"
+              className="font-clash text-xl md:text-4xl text-gray-700 mb-8 lg:mx-0 text-center "
             >
-              Professional-grade foam roller designed for athletes and fitness enthusiasts who demand the best.
+              Recupera tu cuerpo. Cuidá el planeta.
             </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg">
-                Get Yours Today
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              
-              <div className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
-                <div className="flex text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <span>4.9/5 from 2,847 reviews</span>
-              </div>
-            </motion.div>
+            <div className=" flex justify-center w-full">
+              <a
+                href="/checkout"
+                className="mt-20 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-3xl font-semibold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-110 translate-x-[-12px]"
+              >
+                Comprá ahora
+              </a>
+            </div>
           </motion.div>
 
           {/* 3D Model */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="relative"
-          >
+          <motion.div>
             <Suspense fallback={
-              <div className="w-full h-[400px] md:h-[500px] bg-muted/30 rounded-lg animate-pulse flex items-center justify-center">
+              <div className="w-full h-[400px] md:h-[500px] bg-muted/30 rounded-lg animate-pulse flex items-center justify-center ">
                 <div className="text-muted-foreground">Loading 3D Model...</div>
               </div>
             }>
-              <FoamRoller3D />
+              <ThreeDViewer />
+
             </Suspense>
           </motion.div>
         </div>
       </section>
+    
+      <section className="w-full py-20 px-6 bg-[#f7f7f7]">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    {/* Video a la izquierda con animación de entrada desde la izquierda */}
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-full h-full"
+    >
+      <video
+        src="/lovable-uploads/Video2.mp4"
+        controls
+        autoPlay
+        loop
+        muted
+        className="w-[450px] h-[600px] object-cover rounded-xl shadow-xl"
+      />
+    </motion.div>
+
+    {/* Texto a la derecha con animación de entrada desde la derecha */}
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="flex flex-col gap-6 text-4xl text-gray-700 font-clash max-w-lg text-center"
+    >
+      <p>
+        Diseño macizo y firme para elongar y recuperar cada músculo.
+      </p>
+      <p>
+        Ideales para entrenamientos, rehabilitación y prevención de lesiones.
+      </p>
+      <p>
+        Más duraderos que los rodillos convencionales: no se rompen ni se deforman.
+      </p>
+    </motion.div>
+
+  </div>
+</section>
+
 
 
       {/* Real Usage Photos Section */}
@@ -121,12 +171,9 @@ export default function LandingPage() {
 
         <div className="max-w-6xl mx-auto relative z-10">
           <ScrollSection direction="scale" className="text-center mb-16">
-            <h2 className="font-bohme text-4xl md:text-5xl font-bold text-foreground mb-4">
-              See It In Action
+            <h2 className="font-bohme text-4xl sm:text-5xl md:text-6xl text-azul mb-4 leading-tight">
+              Eleva tu<br className="block sm:hidden" /> entrenamiento
             </h2>
-            <p className="font-clash text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of athletes who trust Moahu for their recovery routine.
-            </p>
           </ScrollSection>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -141,31 +188,24 @@ export default function LandingPage() {
               >
                 <motion.img 
                   src="/lovable-uploads/0c4fdea4-d69a-42e4-b84f-746639fdb42b.png"
-                  alt="Athlete using foam roller for leg recovery"
-                  className="w-full h-[400px] object-cover transition-transform duration-700"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  alt="Deportista usando el rodillo para recuperación"
+                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div 
-                  className="absolute bottom-6 left-6 text-white"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                  <p className="font-bohme text-lg font-semibold">Professional Recovery</p>
-                  <p className="font-clash text-sm opacity-90">Target specific muscle groups</p>
-                </motion.div>
+                
+                {/* Fondo negro translúcido activado con hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                {/* Texto visible al hacer hover */}
+                <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition duration-300">
+                  <p className="font-bohme text-lg font-semibold">Recuperación profesional</p>
+                  <p className="font-clash text-sm opacity-90">Activa zonas musculares clave</p>
+                </div>
               </motion.div>
             </ScrollSection>
 
+
             {/* Image 2 - Enhanced with left slide and parallax */}
-            <ScrollSection direction="left" delay={0.4} parallax={true}>
+            <ScrollSection direction="scale" delay={0.2} parallax={true}>
               <motion.div 
                 className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500"
                 whileHover={{ 
@@ -174,32 +214,25 @@ export default function LandingPage() {
                 }}
               >
                 <motion.img 
-                  src="/lovable-uploads/44b2e2d2-304e-42d7-9c54-e19c0635844a.png"
-                  alt="Athlete performing foam rolling exercise"
-                  className="w-full h-[400px] object-cover transition-transform duration-700"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  src="/lovable-uploads/foto4.jpeg"
+                  alt="Deportista usando el rodillo para recuperación"
+                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div 
-                  className="absolute bottom-6 left-6 text-white"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                  <p className="font-bohme text-lg font-semibold">Enhanced Flexibility</p>
-                  <p className="font-clash text-sm opacity-90">Improve range of motion</p>
-                </motion.div>
+                
+                {/* Fondo negro translúcido activado con hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                {/* Texto visible al hacer hover */}
+                <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition duration-300">
+                  <p className="font-bohme text-lg font-semibold">Recuperación profesional</p>
+                  <p className="font-clash text-sm opacity-90">Activa zonas musculares clave</p>
+                </div>
               </motion.div>
             </ScrollSection>
 
+
             {/* Image 3 - Enhanced with right slide and parallax */}
-            <ScrollSection direction="right" delay={0.6} parallax={true}>
+            <ScrollSection direction="scale" delay={0.2} parallax={true}>
               <motion.div 
                 className="group relative overflow-hidden rounded-xl shadow-soft hover:shadow-lg transition-all duration-500"
                 whileHover={{ 
@@ -209,63 +242,48 @@ export default function LandingPage() {
               >
                 <motion.img 
                   src="/lovable-uploads/a1da0c35-5850-40bb-8f81-033a990c7f7f.png"
-                  alt="Athlete using foam roller in gym setting"
-                  className="w-full h-[400px] object-cover transition-transform duration-700"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  alt="Deportista usando el rodillo para recuperación"
+                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div 
-                  className="absolute bottom-6 left-6 text-white"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                  <p className="font-bohme text-lg font-semibold">Daily Training</p>
-                  <p className="font-clash text-sm opacity-90">Built for intensive use</p>
-                </motion.div>
+                
+                {/* Fondo negro translúcido activado con hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                {/* Texto visible al hacer hover */}
+                <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition duration-300">
+                  <p className="font-bohme text-lg font-semibold">Recuperación profesional</p>
+                  <p className="font-clash text-sm opacity-90">Activa zonas musculares clave</p>
+                </div>
               </motion.div>
             </ScrollSection>
+
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <ScrollSection className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-bohme text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Ready to Elevate Your Recovery?
-          </h2>
-          <p className="font-clash text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Join the thousands of athletes who've made Moahu their go-to recovery tool.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-12 py-4 text-xl">
-              Order Now - $89
-              <ArrowRight className="ml-2 h-6 w-6" />
-            </Button>
-            <div className="text-sm text-muted-foreground">
-              ✓ Free shipping • ✓ 30-day return • ✓ 2-year warranty
-            </div>
-          </div>
-        </div>
-      </ScrollSection>
+      
 
-      {/* Footer */}
-      <footer className="bg-header text-header-foreground py-8 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="font-bohme text-2xl font-bold mb-4">Moahu</div>
-          <p className="font-clash text-sm opacity-80">
-            Professional recovery tools for serious athletes
-          </p>
+      <footer className="bg-azul text-white py-10 px-6 sm:px-12">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+          
+          {/* Redes sociales */}
+          <div className="flex gap-4 items-center invert">
+            <a href="https://wa.me/5491123498257" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/whatsapp.svg" alt="WhatsApp" className="w-8 h-8 hover:scale-110 transition-transform" />
+            </a>
+            <a href="https://www.instagram.com/moahu_" target="_blank" rel="noopener noreferrer">
+              <img src="/icons/instagram.svg" alt="Instagram" className="w-8 h-8 hover:scale-110 transition-transform" />
+            </a>
+          </div>
+
+          {/* Eslogan */}
+          <p className="text-sm sm:text-base font-clash sm:text-3xl">Recupera tu cuerpo. Cuidá el planeta.</p>
+
+          {/* Logo */}
+          <img src="/lovable-uploads/Logo.png" alt="Moahu Logo" className="w-30 h-16" />
         </div>
       </footer>
+
     </div>
   )
 }

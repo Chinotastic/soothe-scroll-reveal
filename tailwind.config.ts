@@ -19,6 +19,8 @@ export default {
 		},
 		extend: {
 			colors: {
+				celeste: '#d4e8ff',
+				azul: '#23326a',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -69,11 +71,11 @@ export default {
 				}
 			},
 			fontFamily: {
+				bohme: ['Bohme', 'sans-serif'],
+    			clash: ['Clash Display Medium', 'sans-serif'],
 				'title': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
 				'body': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
 				'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				'bohme': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				'clash': ['Inter', 'system-ui', '-apple-system', 'sans-serif']
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)'

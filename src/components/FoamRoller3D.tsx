@@ -47,7 +47,7 @@ function FoamRollerMesh() {
 
 export default function FoamRoller3D() {
   return (
-    <div className="w-full h-[400px] md:h-[500px]">
+    <div className="w-full border-4 border-[#23326a] rounded-3xl shadow-xl p-4 h-[300px] md:h-[500px]">
       <Canvas camera={{ position: [5, 2, 5], fov: 50 }}>
         <Suspense fallback={null}>
           <Environment preset="studio" />
@@ -69,7 +69,7 @@ export default function FoamRoller3D() {
             maxDistance={10}
             minDistance={3}
             autoRotate
-            autoRotateSpeed={0.5}
+            autoRotateSpeed={0.7}
           />
         </Suspense>
       </Canvas>

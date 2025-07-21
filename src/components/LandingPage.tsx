@@ -67,33 +67,35 @@ useEffect(() => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center items-start text-left px-4 lg:px-8 space-y-5 z-10"
+            className="flex flex-col justify-center items-center text-center px-4"
           >
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl font-bohme text-azul text-center mt-12 sm:mt-20"
-            >
-              Rodillos 100% de caucho reciclado.
-              
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-clash text-xl md:text-4xl text-gray-700 mb-8 lg:mx-0 text-center "
-            >
-              Recuperá tu cuerpo. Cuidá el planeta.
-            </motion.p>
-            <div className=" flex justify-center w-full">
-              <a
-                href="/checkout"
-                className="mt-20 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-3xl font-semibold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-110 translate-x-[-12px]"
+            <div className="max-w-md w-full">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bohme text-azul mt-12 sm:mt-20 leading-tight"
               >
-                Comprá ahora
-              </a>
+                Rodillos 100% de caucho reciclado.
+              </motion.h1>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="font-clash text-2xl sm:text-xl md:text-2xl text-gray-700 mt-4 mb-8"
+              >
+                Recuperá tu cuerpo. Cuidá el planeta.
+              </motion.p>
+
+              <div className="flex justify-center">
+                <a
+                  href="/comprar"
+                  className="mt-4 sm:mt-8 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-xl sm:text-3xl sm:text-2xl font-semibold py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105"
+                >
+                  Comprá ahora
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -138,7 +140,7 @@ useEffect(() => {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="flex flex-col gap-6 text-4xl text-gray-700 font-clash max-w-lg text-center"
+      className="flex flex-col gap-6 text-2xl text-gray-700 font-clash max-w-lg text-center"
     >
       <p>
         Diseño macizo y firme para elongar y recuperar cada músculo.
@@ -277,7 +279,7 @@ useEffect(() => {
           </div>
 
           {/* Eslogan */}
-          <p className="text-sm sm:text-base font-clash sm:text-3xl">Recuperá tu cuerpo. Cuidá el planeta.</p>
+          <p className="text-sm sm:text-base font-clash sm:text-2xl">Recuperá tu cuerpo. Cuidá el planeta.</p>
 
           {/* Logo */}
           <img src="/lovable-uploads/Logo.png" alt="Moahu Logo" className="w-30 h-16" />

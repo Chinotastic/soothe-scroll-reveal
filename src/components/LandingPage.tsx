@@ -9,7 +9,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment, useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { ThreeDViewer } from "@/components/ThreeDViewer";
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -91,12 +91,12 @@ useEffect(() => {
               </motion.p>
 
               <div className="flex justify-center">
-                <a
-                  href="/comprar"
-                  className="mt-4 sm:mt-8 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-xl sm:text-3xl font-semibold py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105"
-                >
-                  Comprá ahora
-                </a>
+                <Link
+                to="/comprar"
+                className="mt-4 sm:mt-8 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-xl sm:text-3xl font-semibold py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105"
+              >
+                Comprá ahora
+              </Link>
               </div>
             </div>
           </motion.div>

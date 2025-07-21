@@ -13,6 +13,7 @@ import { ThreeDViewer } from "@/components/ThreeDViewer";
 
 
 
+
 export default function LandingPage() {
   const [showHeader, setShowHeader] = useState(true);
 let lastScrollY = 0;
@@ -56,34 +57,35 @@ useEffect(() => {
       </header>
 
       {/* Hero Section with 3D Model */}
-      <section className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+      <section className="relative flex flex-col justify-center items-center px-6 overflow-hidden py-12 sm:py-24">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-[#58c9e7] -z-10" />
         
         {/* Hero Content */}
-        <div className="max-w-zxl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-zxl mx-auto w-full grid lg:grid-cols-2 gap-1 items-center">
           {/* Text Content */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center items-center text-center px-4"
+            className="flex flex-col justify-center items-start text-left px-4 sm:items-center sm:text-center text-center"
           >
-            <div className="max-w-md w-full">
+            <div className="w-full max-w-3xl mx-auto">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bohme text-azul mt-12 sm:mt-20 leading-tight"
+                className="text-3xl sm:text-5xl md:text-6xl font-bohme text-azul mt-6 sm:mt-18 leading-tight max-w-3xl"
               >
-                Rodillos 100% de caucho reciclado.
+                <span className="block">Rodillos 100% de caucho</span>
+                <span className="block">reciclado.</span>
               </motion.h1>
 
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="font-clash text-2xl sm:text-xl md:text-2xl text-gray-700 mt-4 mb-8"
+                className="font-clash text-2xl sm:text-xl md:text-3xl text-gray-700 mt-4 mb-8"
               >
                 Recuperá tu cuerpo. Cuidá el planeta.
               </motion.p>
@@ -91,7 +93,7 @@ useEffect(() => {
               <div className="flex justify-center">
                 <a
                   href="/comprar"
-                  className="mt-4 sm:mt-8 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-xl sm:text-3xl sm:text-2xl font-semibold py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105"
+                  className="mt-4 sm:mt-8 bg-[#23326a] hover:bg-[#1b2655] text-white font-clash text-xl sm:text-3xl font-semibold py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105"
                 >
                   Comprá ahora
                 </a>
@@ -140,7 +142,7 @@ useEffect(() => {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="flex flex-col gap-6 text-2xl text-gray-700 font-clash max-w-lg text-center"
+      className="flex flex-col gap-6 text-2xl sm:text-xl md:text-3xl text-gray-700 font-clash max-w-lg text-center"
     >
       <p>
         Diseño macizo y firme para elongar y recuperar cada músculo.
@@ -279,7 +281,7 @@ useEffect(() => {
           </div>
 
           {/* Eslogan */}
-          <p className="text-sm sm:text-base font-clash sm:text-2xl">Recuperá tu cuerpo. Cuidá el planeta.</p>
+          <p className="text-base sm:text-xl md:text-3xl font-clash">Recuperá tu cuerpo. Cuidá el planeta.</p>
 
           {/* Logo */}
           <img src="/lovable-uploads/Logo.png" alt="Moahu Logo" className="w-30 h-16" />

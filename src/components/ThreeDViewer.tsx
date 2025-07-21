@@ -15,7 +15,7 @@ function RollerModel() {
   return (
     <primitive
       object={scene}
-      scale={0.6}
+      scale={0.55}
       position={[0, -1.6, 0]}
       rotation={[Math.PI / 1, 0, Math.PI]}
       castShadow

@@ -1,3 +1,4 @@
+
 {
   "redirects": [
     {
@@ -9,7 +10,7 @@
         }
       ],
       "destination": "https://moahu.com.ar/:1",
-      "permanent": true
+      "permanent":  true
     }
   ]
 }

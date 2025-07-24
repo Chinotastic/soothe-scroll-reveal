@@ -2,17 +2,7 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "moahu.com.ar"
-        },
-        {
-          "type": "protocol",
-          "value": "http"
-        }
-      ],
-      "destination": "https://moahu.com.ar/:1",
+      "destination": "https://moahu.com.ar/$1",
       "permanent": true
     }
   ]

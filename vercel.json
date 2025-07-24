@@ -2,7 +2,13 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "destination": "https://moahu.com.ar/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "moahu.vercel.app"
+        }
+      ],
+      "destination": "https://moahu.com.ar/:1",
       "permanent": true
     }
   ]

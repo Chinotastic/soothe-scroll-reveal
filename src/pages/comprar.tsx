@@ -342,7 +342,7 @@ export default function Comprar() {
         <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-md">
           <h3 className="text-xl font-semibold mb-4 text-center">Carrito</h3>
           <div className="flex gap-4 mb-4">
-            <img src="/lovable-uploads/foto4.jpeg" alt="Producto" className="w-20 h-20 object-contain border rounded-md" />
+            <img src="/lovable-uploads/foto5.jpeg" alt="Producto" className="w-20 h-20 object-contain border rounded-md" />
             <div>
               <p className="font-semibold">Rodillo Moahu</p>
               <p className="text-gray-600 text-sm">{cantidad} unidad{cantidad > 1 ? 'es' : ''}</p>

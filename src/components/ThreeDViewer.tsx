@@ -26,7 +26,7 @@ function RollerModel() {
 export function ThreeDViewer() {
   return (
     <motion.div
-      className="h-screen w-full pointer-events-none" // 👈 agrega esto
+      className="h-screen w-full" // 👈 agrega esto
       initial={{ y: -200, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}

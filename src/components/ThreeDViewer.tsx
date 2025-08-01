@@ -26,7 +26,7 @@ function RollerModel() {
 export function ThreeDViewer() {
   return (
     <motion.div
-      className="h-screen w-full"
+      className="h-screen w-full "
       initial={{ y: -200, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
@@ -51,7 +51,7 @@ export function ThreeDViewer() {
           far={4}
         />
         <Environment preset="sunset" />
-        <OrbitControls enableZoom={false} autoRotate />
+        <OrbitControls enableRotate={false} enableZoom={false} enablePan={false} autoRotate />
       </Canvas>
     </motion.div>
   );

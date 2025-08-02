@@ -35,7 +35,7 @@ useEffect(() => {
     }, []);
 
   return (
-    <div className="min-h-screen bg-celeste">
+    <div className="min-h-screen bg-celeste overflow-x-hidden">
       {/* Header */}
       <header className={`fixed top-0 left-0 w-full z-50 bg-header text-header-foreground py-4 px-6 shadow-soft transition-transform duration-300`}>
         <div className="max-w-6xl mx-auto flex justify-center items-center">
@@ -169,9 +169,9 @@ useEffect(() => {
               <div className="bg-white p-3 rounded-full mb-4">
                 <span className="text-[#23326a] text-2xl">♻️</span>
               </div>
-              <h3 className="text-white font-clash font-bold text-lg">Firme y resistente</h3>
+              <h3 className="text-white font-clash font-bold text-lg">Hecho con caucho reciclado</h3>
               <p className="text-gray-200 font-clash text-sm mt-2">
-                Soporta hasta 150kg. Diseñado para durar años de uso intensivo.
+                100% materiales reciclados. Cuidás tu cuerpo y el planeta.
               </p>
             </div>
           </motion.div>
@@ -189,9 +189,9 @@ useEffect(() => {
               <div className="bg-white p-3 rounded-full mb-4">
                 <span className="text-[#23326a] text-2xl">❤️</span>
               </div>
-              <h3 className="text-white font-clash font-bold text-lg">Firme y resistente</h3>
+              <h3 className="text-white font-clash font-bold text-lg">Ideal para recuperación</h3>
               <p className="text-gray-200 font-clash text-sm mt-2">
-                Soporta hasta 150kg. Diseñado para durar años de uso intensivo.
+                Mejora la circulación y reduce la tensión muscular despues del entrenamiento.
               </p>
             </div>
           </motion.div>
@@ -209,9 +209,9 @@ useEffect(() => {
               <div className="bg-white p-3 rounded-full mb-4">
                 <span className="text-[#23326a] text-2xl">👤</span>
               </div>
-              <h3 className="text-white font-clash font-bold text-lg">Firme y resistente</h3>
+              <h3 className="text-white font-clash font-bold text-lg">Diseñado por atletas</h3>
               <p className="text-gray-200 font-clash text-sm mt-2">
-                Soporta hasta 150kg. Diseñado para durar años de uso intensivo.
+                Creados por profesionales del deporte que entienden tus necesidades.
               </p>
             </div>
           </motion.div>
